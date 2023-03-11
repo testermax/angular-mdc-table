@@ -1,0 +1,76 @@
+table {
+  width: 100%;
+}
+/*row height*/
+.mat-mdc-row {
+  height: 38px;
+}
+/* remove crazy padding introduced in mdc, in all table cells */
+.mdc-data-table__cell {
+  padding: 0px;
+  &:first-child,
+  &:last-child {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+}
+.mdc-data-table__header-cell {
+}
+
+/* header row */
+.mat-mdc-header-row {
+  background-color: whitesmoke;
+}
+
+/* footer row height and styling, this is applied to all cells in footer */
+.mat-mdc-footer-row {
+  background-color: whitesmoke;
+  height: 3rem;
+  td {
+    border-top: 1px solid lightgray;
+  }
+  &:first-child td {
+    /* first footer row, table data */
+    font-weight: bold;
+    &:first-child {
+      /* first footer row, first cell */
+      text-align: center;
+    }
+  }
+
+  &:nth-child(2) {
+    /* second footer row */
+    height: 4rem;
+    font-style: italic;
+    background-color: lightgray;
+    td {
+      border-bottom: 1px solid lightgray;
+      border-left: 4px solid orange;
+      padding: 1rem;
+    }
+  }
+}
+
+/* individual colums definitions*/
+.mat-column-cost {
+  width: fit-content;
+  text-align: end;
+  padding-right: 1rem;
+}
+.mat-column-menu {
+  width: 32px;
+  border-left: 2px solid lightgray;
+  padding-left: 1rem;
+  text-align: center;
+}
+
+
+/*style status button (mat-fab extended) */
+.mat-mdc-extended-fab {
+  height: 33px;
+  background-color: whitesmoke;
+  color: black;
+  border: 1px solid green; /*should be set dynamically */
+}
+
+/*************************experimental*************************/
