@@ -1,10 +1,13 @@
 <mat-card class="mat-elevation-z8">
   <mat-card-header>
-    <mat-card-title> Table card header </mat-card-title>
-    <mat-card-subtitle> table card subtitle </mat-card-subtitle>
+    <mat-card-title> Mat mdc table styling </mat-card-title>
+    <mat-card-subtitle>
+      override styles of mat mad table component
+    </mat-card-subtitle>
   </mat-card-header>
   <br />
   <mat-card-content>
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     <table mat-table [dataSource]="transactions" class="mat-elevation-z2">
       <!-- Item Column -->
       <ng-container matColumnDef="item">
@@ -22,7 +25,7 @@
       </ng-container>
       <!-- menu Column -->
       <ng-container matColumnDef="menu">
-        <th mat-header-cell *matHeaderCellDef>Mer</th>
+        <th mat-header-cell *matHeaderCellDef>More</th>
         <td mat-cell *matCellDef="let transaction">
           <button mat-fab extended [matMenuTriggerFor]="menu">
             <mat-icon>play_arrow</mat-icon>
@@ -45,10 +48,7 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
-      <tr
-        mat-footer-row
-        *matFooterRowDef="['disclaimer']"
-      ></tr>
+      <tr mat-footer-row *matFooterRowDef="['disclaimer']"></tr>
     </table>
   </mat-card-content>
 </mat-card>
@@ -69,6 +69,68 @@
     <span>Avslutt</span>
   </button>
 </mat-menu>
+
+<br />
+<mat-divider></mat-divider>
+<br />
+
+<mat-card class="mat-elevation-z8">
+  <mat-card-header>
+    <mat-card-title> Mat form fields styling </mat-card-title>
+    <mat-card-subtitle>
+      override styles of mat form field components
+    </mat-card-subtitle>
+  </mat-card-header>
+  <br />
+  <mat-card-content>
+    <div class="example-container">
+      <mat-form-field floatLabel="auto" hintLabel="max 10 characters">
+        <mat-label>Item name</mat-label>
+        <input #input matInput type="text" placeholder="placeholder..." />
+        <span matTextPrefix>#&nbsp;</span>
+        <mat-icon matIconSuffix>play_arrow</mat-icon>
+        <mat-hint align="end">{{input.value.length}}/10</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field floatLabel="always" hintLabel="max 100 characters">
+        <mat-label>Item descr.</mat-label>
+        <input #input2 matInput type="text" placeholder="placeholder..." />
+        <span matTextPrefix>#&nbsp;</span>
+        <mat-icon matIconSuffix>pause</mat-icon>
+        <mat-hint align="end">{{input2.value.length}}/100</mat-hint>
+      </mat-form-field>
+
+      <br />
+      <br />
+
+      <mat-form-field
+        appearance="outline"
+        floatLabel="auto"
+        hintLabel="max 10 characters"
+      >
+        <mat-label>Item name</mat-label>
+        <input #input3 matInput type="text" placeholder="placeholder..." />
+        <span matTextPrefix>#&nbsp;</span>
+        <mat-icon matIconSuffix>play_arrow</mat-icon>
+        <mat-hint align="end">{{input3.value.length}}/10</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field
+        appearance="outline"
+        floatLabel="always"
+        hintLabel="max 100 characters"
+      >
+        <mat-label>Item descr.</mat-label>
+        <input #input4 matInput type="text" placeholder="placeholder..." />
+        <span matTextPrefix>#&nbsp;</span>
+        <mat-icon matIconSuffix>pause</mat-icon>
+        <mat-hint align="end">{{input4.value.length}}/100</mat-hint>
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<br>
 
 <!-- Copyright 2023 Google LLC. All Rights Reserved.
     Use of this source code is governed by an MIT-style license that

@@ -14,6 +14,7 @@ interface Transaction {
   templateUrl: 'table-footer-row-example.html',
 })
 export class TableFooterRowExample {
+  hide = true;
   displayedColumns: string[] = ['item', 'cost', 'menu'];
   transactions: Transaction[] = [
     { item: 'Beach ball', cost: 4 },

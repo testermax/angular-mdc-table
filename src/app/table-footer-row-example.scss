@@ -65,7 +65,6 @@ table {
   text-align: center;
 }
 
-
 /*style status button (mat-fab extended) */
 .mat-mdc-extended-fab {
   height: 33px;
@@ -75,3 +74,22 @@ table {
 }
 
 /*************************experimental*************************/
+
+/* FORMS */
+
+.mdc-text-field--filled {
+  // background-color: red !important;
+}
+
+.example-container mat-form-field:nth-of-type(even) {
+  margin-left: 1rem;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
