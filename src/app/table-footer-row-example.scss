@@ -3,7 +3,7 @@ table {
 }
 /*row height*/
 .mat-mdc-row {
-  height: 38px;
+  height: 40px;
 }
 /* remove crazy padding introduced in mdc, in all table cells */
 .mdc-data-table__cell {
@@ -20,6 +20,7 @@ table {
 /* header row */
 .mat-mdc-header-row {
   background-color: whitesmoke;
+  height: 3rem;
 }
 
 /* footer row height and styling, this is applied to all cells in footer */
