@@ -15,7 +15,7 @@ interface Transaction {
 })
 export class TableFooterRowExample {
   hide = true;
-  displayedColumns: string[] = ['item', 'cost', 'menu'];
+  displayedColumns: string[] = ['item', 'cost', 'menu', 'more'];
   transactions: Transaction[] = [
     { item: 'Beach ball', cost: 4 },
     { item: 'Towel', cost: 5 },

@@ -7,7 +7,7 @@
   </mat-card-header>
   <br />
   <mat-card-content>
-    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    <!-- <mat-progress-bar mode="indeterminate"></mat-progress-bar> -->
     <table mat-table [dataSource]="transactions" class="mat-elevation-z2">
       <!-- Item Column -->
       <ng-container matColumnDef="item">
@@ -23,9 +23,19 @@
         </td>
         <td mat-footer-cell *matFooterCellDef>{{getTotalCost() | currency}}</td>
       </ng-container>
+      <!-- more Column -->
+      <ng-container matColumnDef="more">
+        <th mat-header-cell *matHeaderCellDef>More</th>
+        <td mat-cell *matCellDef="let transaction">
+          <button mat-icon-button class="mat-icon-button-size-md">
+            <mat-icon>more_vertical</mat-icon>
+          </button>
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
       <!-- menu Column -->
       <ng-container matColumnDef="menu">
-        <th mat-header-cell *matHeaderCellDef>More</th>
+        <th mat-header-cell *matHeaderCellDef>Action</th>
         <td mat-cell *matCellDef="let transaction">
           <button mat-fab extended [matMenuTriggerFor]="menu">
             <mat-icon>play_arrow</mat-icon>
@@ -36,15 +46,23 @@
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
 
-      <!-- Disclaimer column -->
+      <!-- Alert header column -->
+      <ng-container matColumnDef="alert">
+        <td mat-header-cell *matHeaderCellDef colspan="4">
+          It is possible to correct errors now
+        </td>
+      </ng-container>
+
+      <!-- Disclaimer footer column -->
       <ng-container matColumnDef="disclaimer">
-        <td mat-footer-cell *matFooterCellDef colspan="3">
+        <td mat-footer-cell *matFooterCellDef colspan="4">
           Please note that the cost of items displayed are completely and
           totally made up.
         </td>
       </ng-container>
 
       <!--Row configs-->
+      <tr mat-header-row *matHeaderRowDef="['alert']"></tr>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
@@ -87,7 +105,8 @@
       <mat-form-field floatLabel="auto" hintLabel="max 10 characters">
         <mat-label>Item name</mat-label>
         <input #input matInput type="text" placeholder="placeholder..." />
-        <span matTextPrefix>#&nbsp;</span>
+        <span matTextPrefix>pref.&nbsp;</span>
+        <span matTextSuffix>suf.</span>
         <mat-icon matIconSuffix>play_arrow</mat-icon>
         <mat-hint align="end">{{input.value.length}}/10</mat-hint>
       </mat-form-field>
@@ -95,7 +114,8 @@
       <mat-form-field floatLabel="always" hintLabel="max 100 characters">
         <mat-label>Item descr.</mat-label>
         <input #input2 matInput type="text" placeholder="placeholder..." />
-        <span matTextPrefix>#&nbsp;</span>
+        <span matTextPrefix>pref.&nbsp;</span>
+        <span matTextSuffix>suf.</span>
         <mat-icon matIconSuffix>pause</mat-icon>
         <mat-hint align="end">{{input2.value.length}}/100</mat-hint>
       </mat-form-field>
@@ -110,7 +130,8 @@
       >
         <mat-label>Item name</mat-label>
         <input #input3 matInput type="text" placeholder="placeholder..." />
-        <span matTextPrefix>#&nbsp;</span>
+        <span matTextPrefix>pref.&nbsp;</span>
+        <span matTextSuffix>suf.</span>
         <mat-icon matIconSuffix>play_arrow</mat-icon>
         <mat-hint align="end">{{input3.value.length}}/10</mat-hint>
       </mat-form-field>
@@ -122,7 +143,8 @@
       >
         <mat-label>Item descr.</mat-label>
         <input #input4 matInput type="text" placeholder="placeholder..." />
-        <span matTextPrefix>#&nbsp;</span>
+        <span matTextPrefix>pref.&nbsp;</span>
+        <span matTextSuffix>suf.</span>
         <mat-icon matIconSuffix>pause</mat-icon>
         <mat-hint align="end">{{input4.value.length}}/100</mat-hint>
       </mat-form-field>
@@ -130,7 +152,7 @@
   </mat-card-content>
 </mat-card>
 
-<br>
+<br />
 
 <!-- Copyright 2023 Google LLC. All Rights Reserved.
     Use of this source code is governed by an MIT-style license that

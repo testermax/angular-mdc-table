@@ -21,6 +21,16 @@ table {
 .mat-mdc-header-row {
   background-color: whitesmoke;
   height: 3rem;
+  &:first-child {
+    /* first header row */
+    height: 4rem;
+    font-style: italic;
+    background-color: lightgray;
+    td {
+      border-left: 4px solid lightblue;
+      padding: 1rem;
+    }
+  }
 }
 
 /* footer row height and styling, this is applied to all cells in footer */
@@ -64,10 +74,14 @@ table {
   padding-left: 1rem;
   text-align: center;
 }
+.mat-column-more {
+  width: 32px;
+  text-align: center;
+}
 
 /*style status button (mat-fab extended) */
 .mat-mdc-extended-fab {
-  height: 33px;
+  height: 36px;
   background-color: whitesmoke;
   color: black;
   border: 1px solid green; /*should be set dynamically */
@@ -76,11 +90,6 @@ table {
 /*************************experimental*************************/
 
 /* FORMS */
-
-.mdc-text-field--filled {
-  // background-color: red !important;
-}
-
 .example-container mat-form-field:nth-of-type(even) {
   margin-left: 1rem;
 }
@@ -93,3 +102,44 @@ input.example-right-align::-webkit-outer-spin-button,
 input.example-right-align::-webkit-inner-spin-button {
   display: none;
 }
+
+
+/* Mixin for mat-icon-button */
+$mat-icon-sizes: (
+  'sm': (24px, 16px),
+  'md': (36px, 24px),
+  'lg': (72px, 48px),
+);
+
+@mixin mat-icon-button-size($button-size, $icon-size) {
+  width: $button-size !important;
+  height: $button-size !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+
+  & > *[role=img] {
+    width: $icon-size;
+    height: $icon-size;
+    font-size: $icon-size;
+
+    svg {
+      width: $icon-size;
+      height: $icon-size;
+    }
+  }
+
+  .mat-mdc-button-touch-target {
+    width: $button-size !important;
+    height: $button-size !important;
+  }
+}
+
+@each $name, $sizes in $mat-icon-sizes {
+  .mat-icon-button-size-#{$name} {
+    @include mat-icon-button-size(nth($sizes, 1), nth($sizes, 2));
+  }
+}
+
+
